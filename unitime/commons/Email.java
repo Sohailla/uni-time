@@ -24,13 +24,14 @@ import java.io.File;
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
+import javax.sql.DataSource;
 
 import org.unitime.timetable.defaults.ApplicationProperty;
 
 /**
  * @author Tomas Muller
  */
-public abstract class Email {
+public abstract class Email implements EmailService {
 
 	public static Email createEmail() throws Exception {
 		return (Email)Class.forName(ApplicationProperty.EmailProvider.value()).getDeclaredConstructor().newInstance();
