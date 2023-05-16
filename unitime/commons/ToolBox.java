@@ -117,7 +117,31 @@ public class ToolBox {
 
 		return sb.toString();
 	}
+/**
+	 * Checks if a given string is empty or consists only of whitespace characters.
+	 *
+	 * @param str the string to check
+	 * @return true if the string is empty or contains only whitespace, false otherwise
+	 */
+	public static boolean isNullOrEmpty(String str) {
+		return str == null || str.trim().isEmpty();
+	}
 
+	/**
+	 * Count the number of occurrences of a substring in a string.
+	 * @param source the source string
+	 * @param substring the substring to count occurrences of
+	 * @return the number of occurrences of the substring in the source string
+	 */
+	public static int countOccurrences(String source, String substring) {
+		int count = 0;
+		int index = 0;
+		while ((index = source.indexOf(substring, index)) != -1) {
+			count++;
+			index += substring.length();
+		}
+		return count;
+	}
 	/** Return caller (name of class which call the method from which this method was called) - for debug.
 	 * @return caller class
 	 */
